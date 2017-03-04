@@ -71,7 +71,7 @@ let SuperList=function () {
             //теперь текущим элементом становится следующий элемент
             current_element=current_element.next;
         }
-        s="Вывод (в обратном порядке):\n" + s + current_element.toString() + "\n";
+        s="(" + s + current_element.toString() + ")";
         return s;
     }
 
@@ -314,7 +314,7 @@ sl.delValue(new Value(7));
 
 let v=sl.returnValue(new Value(5));
 if (v!=null) {
-    console.log("returnv: " + v.toString());
+    console.log("найденное значение: " + v.toString());
 }
 
 //проверка сложения двух чисел
@@ -328,8 +328,11 @@ sl2=MakeSuperList(b);
 
 sl=SuperListNumSum(sl1, sl2);
 
-console.log(sl.count());
-console.log(sl.toString());
+console.log("Элементов в списке: "+sl.count());
+
+console.log("Input: " + sl1.toString()+" + "+sl2.toString());
+
+console.log("Output: " + sl.toString());
 
 v=sl.getDataByIndex(1);
-console.log(v.toString());
+console.log("возвращаем элемент по индексу 1: "+v.toString());
