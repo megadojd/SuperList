@@ -67,11 +67,11 @@ let SuperList=function () {
         let current_element=this.first_element;
         while (current_element.next!=null) {
             //если есть ссылочка на следующий элемент прибавляем единичку
-            s = s + current_element.toString() + "\n";
+            s = s + current_element.toString() + " -> ";
             //теперь текущим элементом становится следующий элемент
             current_element=current_element.next;
         }
-        s="Вывод:\n" + s + current_element.toString() + "\n";
+        s="Вывод (в обратном порядке):\n" + s + current_element.toString() + "\n";
         return s;
     }
 
@@ -317,9 +317,14 @@ if (v!=null) {
     console.log("returnv: " + v.toString());
 }
 
-//переопределяем
-sl1=MakeSuperList(100);
-sl2=MakeSuperList(904);
+//проверка сложения двух чисел
+let a=30196;
+let b=907;
+let ab=a+b;
+console.log("a+b="+a+"+"+b+"="+ab);
+
+sl1=MakeSuperList(a);
+sl2=MakeSuperList(b);
 
 sl=SuperListNumSum(sl1, sl2);
 
