@@ -12,14 +12,27 @@ console.log(getPopular(s));
 
 function getPopular(s) {
     let dict={};
+    let max_stack=[];
+    let max=1;
     let words=s.split(/[\s\r\n.,!?\(\)]+/);
     for (let i=0; i<words.length;i++) {
-        console.log(words[i]);
+        //console.log(words[i]);
+        if (words[i]=="") { continue; }
         if (dict[words[i]]) {
-
+            dict[words[i]]+=1;
         } else {
-            
+            dict[words[i]]=1;
+        }
+        let c=dict[words[i]];
+        //console.log("z:"+c);
+        if (c==max) {
+           max_stack.push(words[i]);
+        } else if (c>max) {
+            max=c;
+            max_stack=[];
+            max_stack.push(words[i]);
         }
     }
-
+    if (max_stack.length==1) {return max_stack.pop();}
+    return "---"
 }
